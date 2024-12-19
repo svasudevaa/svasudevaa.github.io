@@ -29,7 +29,7 @@
             });
 
             clipboard.on('error', function(e) {
-                document.getElementById('copied').innerHTML = 'Looks like you have to do it manually:<br>hey@shitalmainali.com.np';
+                document.getElementById('copied').innerHTML = 'Looks like you have to do it manually:<br>svasudev2002@gmail.com';
             });
 
 
