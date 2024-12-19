@@ -20,7 +20,7 @@
             document.getElementById('mask').style.border = '105vh solid #fff';
             var clipboard = new ClipboardJS('.btn', {
                 text: function() {
-                    return 'hey@shitalmainali.com.np';
+                    return 'svasudev2002@gmail.com';
                 }
             });
 
