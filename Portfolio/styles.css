@@ -456,6 +456,68 @@ button:hover {
     object-fit: cover;
     transition: transform 0.3s ease;
 }
+/* Skills Section  */
+.container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 5px;
+    color:black;
+    padding: 5px;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skills-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #555;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.skills-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.check-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.skill-info h3 {
+    color: #333;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.skill-info p {
+    color: #666;
+    font-size: 0.9rem;
+}
 
 @media (max-width: 768px) {
     .about-image-container {
@@ -689,6 +751,45 @@ button:hover {
 .project-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(66, 153, 225, 0.4);
+}
+/* contact section  */
+.contact-info-upper-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2rem;
+    border: rgb(163, 163, 163) 0.1rem solid;
+    background: rgb(250, 250, 250);
+    margin: 10px auto; /* Center the container horizontally */
+    padding: 5px 15px;
+    width: fit-content;
+    max-width: 80%;
+}
+
+.contact-info-container { /* Fixed class name typo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px;
+}
+
+.contact-icon {
+    height: 2rem;
+}
+
+.contact-info-container p {
+    font-size: larger;
+}
+.contact-info-container a {
+    text-decoration: none; /* Remove underline by default */
+    color: black; /* Default text color */
+    transition: color 0.3s, text-decoration 0.3s; /* Smooth transition */
+}
+
+.contact-info-container a:hover {
+    text-decoration: underline; /* Add underline on hover */
+    color: gray; /* Change color to gray on hover */
 }
 
 @media (max-width: 768px) {
