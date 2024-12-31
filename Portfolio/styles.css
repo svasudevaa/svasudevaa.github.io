@@ -8,7 +8,7 @@ body {
 }
 
 /* Modern Background Animation */
-.background-animation {
+/* .background-animation {
     position: fixed;
     top: 0;
     left: 0;
@@ -17,13 +17,13 @@ body {
     z-index: -1;
     background: linear-gradient(-45deg, 
         rgba(147, 197, 253, 0.5),   /* Blue */
-        rgba(196, 181, 253, 0.5),   /* Purple */
-        rgba(167, 243, 208, 0.5),   /* Green */
-        rgba(252, 165, 165, 0.5)    /* Red */
-    );
+        /* rgba(196, 181, 253, 0.5),   /* Purple */
+        /* rgba(167, 243, 208, 0.5),   Green */
+        /* rgba(252, 165, 165, 0.5)    Red */ */
+    /* );
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
-}
+} */
 
 .background-overlay {
     position: fixed;
@@ -51,7 +51,7 @@ body {
     100% {
         background-position: 0% 50%;
     }
-}
+} */
 
 /* Floating particles */
 .particles {
@@ -95,7 +95,7 @@ body {
 }
 
 /* Animated mesh gradient */
-.mesh-gradient {
+/* .mesh-gradient {
     position: fixed;
     top: 0;
     left: 0;
@@ -124,7 +124,7 @@ body {
     75% {
         transform: translate(-10%, -10%) scale(1.05);
     }
-}
+} */
 
 /* Navbar Styles */
 .navbar {
@@ -418,7 +418,7 @@ button:hover {
     margin: 0 auto;
     border-radius: 50%;
     padding: 8px;
-    background: linear-gradient(45deg, rgba(66, 153, 225, 0.5), rgba(159, 122, 234, 0.5));
+    /* background: linear-gradient(45deg, rgba(66, 153, 225, 0.5), rgba(159, 122, 234, 0.5)); */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
