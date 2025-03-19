@@ -1,202 +1,82 @@
-<!DOCTYPE HTML>
-<html>
-<!--Have fun wathcing the codes -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Vasudev</title>
-    <script>
-   //Getting visitor IP to get country 
-function getVisitorIP(callback) {
-    fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => callback(data.ip))
-        .catch(error => console.error('Error fetching IP:', error));
-}
-
-function getCountryFromIP(ip) {
-    fetch('https://get.geojs.io/v1/ip/geo/' + ip + '.json')
-        .then(response => response.json())
-        .then(data => {
-            const country = data.country.toLowerCase();
-            if (country === "jp" || country === "japan") {
-                window.location.href = "/jp"; 
-            } else {
-                window.location.href ="/en";
-                console.log("Visitor is not from Japan. Displaying the english version of page.");
-            }
-        })
-        .catch(error => console.error('Error fetching country:', error));
-}
-getVisitorIP(getCountryFromIP);
- </script>
-<meta content="Explore the world of programming with Shital Mainali, a passionate backend programmer working as a freelancer. Discover insights, tips, and valuable information about programming, technology, and the freelance lifestyle." name="description">
-  <meta content="backend programmer, freelancer, programming tips, technology insights" name="keywords">
-  <!-- Favicons -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
-  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.ico">
-  <link rel="manifest" href="assets/images/favicon/site.webmanifest">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-    <meta name="description" content=" Inspired Interactive Website">
-    <!-- <link REL="SHORTCUT ICON" HREF="https://shitalmainali.com.np/favicons/favicon.ico"> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="./jquery-3.4.1.min.js"></script>
-    <script src="./clipboard.min.js"></script>
-    <link rel="stylesheet" href="mystyle.css">
-    <script src="myfunction.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Onboarding Wizard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background-color: #f8f9fa; }
+        .container { max-width: 600px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+        .step { display: none; opacity: 0; transform: translateY(10px); transition: all 0.5s ease-in-out; }
+        .step.active { display: block; opacity: 1; transform: translateY(0); }
+        .scroll-box { height: 200px; overflow-y: auto; border: 1px solid #ddd; padding: 10px; }
+        .btn-next, .btn-prev { margin-top: 10px; }
+    </style>
 </head>
-
 <body>
-    <div id="road"></div>
-    <div id="car">
-        <div id="carmirror"></div>
-        <div id="cardetail"></div>
-        <div id="carlight"></div>
-    </div>
-    <div id="topgradient"></div>
-
-
-    <div class="title">
-        Once upon<br>a time&#8203;...
-    </div>
-
-    <div id="map">
-        <div class="intersection"></div>
-        <div class="traffic angle">
-            <div class="lightred"></div>
-            <div class="lightyellow"></div>
-            <div class="lightgreen"></div>
-        </div>
-        <div class="msg leftcopy">
-            Hello there.
-        </div>
-        <div class="building angle left">
-            <span class="white">Lets Ride <Br>With me </span>
-        </div>
-
-       <div class="msg rightcopy">
-           Who's this?
-       </div>
-        <a href="https://shitalmainali.com.np/football">
-        <div class="building angle">
-            <span class="purple">V<br>A<br>S<br>U<br>D<br>E<br>V</span>
-        </div></a>
-          <div class="msg leftcopy">
-            Vasudev Here, Heard you're looking for someone with a very particular set of skills&#8203;...
-        </div>
-        <div class="building angle left">
-            <span>Web Development</span><br><br>
-            <span class="white">Web Designing</span><br><br><br>
-            <span class="red">System Design</span><br><br>
-      
-        </div>
-
-
-        <div class="intersection"></div>
-        <div class="traffic angle">
-            <div class="lightred"></div>
-            <div class="lightyellow"></div>
-            <div class="lightgreen"></div>
-        </div>
-
-        <div class="msg rightcopy">
-            Tell me more, I am intersted
-        </div>
-
-        <div class="building angle">
-            <span class="white large">😎</span><br><br><br>
-            <span class="purple">For<br>Freelancing</span>
-        </div>
-
-
-       <div class="msg leftcopy">
-            Various services like, Websites, Web application 
-        </div>
-        <div class="msg rightcopy">
-            Hmmm..        </div>
-
-        <div class="building angle left">
-            <span class="red">5<br>🕸<br>Projects <br>Done</span>
-        </div>
-
-
-        <div class="msg leftcopy">
-            Graphics Designing and Content Writing
-        </div>
-
-
-        <div class="building angle">
+    <div class="container mt-5">
+        <div id="onboarding-wizard">
+            <!-- Step 1: Theme Selection -->
+            <div class="step step-1 active">
+                <h2>Select a Theme</h2>
+                <div class="d-flex gap-3">
+                    <button class="btn btn-primary theme-option" data-theme="theme1">Theme 1</button>
+                    <button class="btn btn-secondary theme-option" data-theme="theme2">Theme 2</button>
+                    <button class="btn btn-success theme-option" data-theme="theme3">Theme 3</button>
+                </div>
+                <button class="btn btn-next btn-warning mt-3">Next</button>
+            </div>
             
-            <span class="purple">React</span><br><br>
-            <span>Django</span><br><br>
-            <span class="red">Python</span>
-             
-        </div>  
-
-
-
-        <div class="intersection"></div>
-        <div class="pole angle">
-            <div class="stop">Stop</div>
-        </div>
-
-        <div class="msg rightcopy">
-            Can we talk?<br>
-        </div>
-        <div class="building angle left">
-           <span class="white">Bootstrap</span><br><br>
-           <span class="purple">SCSS</span><br><br>
-           <span class="red">CSS</span><br><br>
-           
-           
-        </div>
-        <div class="msg leftcopy">
-           Sure<br>
-        </div>
-         <div class="building angle">
-            <span>Email</span><br><br>
-            <span class="white">Facebook</span><br><br>
-            <span class="red">Whatsapp</span>
-        </div>
-
-        <div class="end angle"></div>
-    </div>
-
-    <div id="endcopy">
-        <div class="center">
-            <h1>Let's go<br>somewhere<br>&nbsp;together.</h1>
-            <a href="mailto:svasudev2002@gmail.com?subject=Hey&#44; let&#39;s meet for coffee&#33;&body=In Kathmandu&#63; Can we schedule a coffee meet for next week&#63;">
-                <div class="button"><b>☕</b>     Coffee</div>
-            </a>
-            <a href="mailto:svasudev2002@gmail.com?subject=Hey &#44; swing by my office&#33;&body=I&#39;m in Kathmandu too&#33; Wanna come by my office next week&#63;">
-                <div class="button"><b>🏬</b>     Your Office</div>
-            </a>
-            <a href="mailto:svasudev2002@gmail.com?subject=Hey,&#44; let&#39;s have a video chat&#33;&body=Let&#39;s talk&#33; Wanna schedule a video chat next week&#63;">
-                <div class="button"><b>💻</b>   Video Chat</div>
-            </a>
-            <a href="mailto:svasudev2002@gmail.com?subject=Hey,&#44; down for a drink?&body=I&#39;m in Kathmandu as well&#33; I&#39;m totally down for a drink and talk business&#46; How does next week sound&#63;">
-                <div class="button"><b>🍻</b>    Drink</div>
-            </a>
-            <br>or<br>
-            <button class="btn"><b>📋</b>   Copy Email Address</button>
-            <div id="copied"></div> 
-            <br><br>
-            <a href="/"><button class="btn btn-success">Learn more about me</button></a>
+            <!-- Step 2: Product Type & Category -->
+            <div class="step step-2">
+                <h2>Add Product Type & Category</h2>
+                <input type="text" class="form-control mb-3" placeholder="Product Type">
+                <input type="text" class="form-control mb-3" placeholder="Category">
+                <button class="btn btn-prev btn-secondary">Back</button>
+                <button class="btn btn-next btn-warning">Next</button>
+            </div>
+            
+            <!-- Step 3: Pricing Page with Scrollbar -->
+            <div class="step step-3">
+                <h2>Pricing Details</h2>
+                <div class="scroll-box">
+                    <p>Plan 1: Basic - $10/month</p>
+                    <p>Plan 2: Standard - $20/month</p>
+                    <p>Plan 3: Premium - $30/month</p>
+                    <p>More pricing details go here...</p>
+                </div>
+                <button class="btn btn-prev btn-secondary">Back</button>
+                <button class="btn btn-success">Finish</button>
+            </div>
         </div>
     </div>
 
-
-
-
-
-    <div id="mask"></div>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let currentStep = 1;
+            function showStep(step) {
+                $(".step").removeClass("active");
+                setTimeout(() => {
+                    $(".step").hide();
+                    $(".step-" + step).show().addClass("active");
+                }, 300);
+            }
+            $(".btn-next").click(function() {
+                if (currentStep < 3) {
+                    currentStep++;
+                    showStep(currentStep);
+                }
+            });
+            $(".btn-prev").click(function() {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
